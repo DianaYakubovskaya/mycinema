@@ -1,0 +1,11 @@
+{% extends 'tickets/base.html' %}
+
+{% block content %}
+<h2>Виберіть місце</h2>  
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="seat_number" placeholder="Номер місця" required>  
+    <button type="submit">Підтвердити місце</button>  
+</form>
+{% endblock %}
+

@@ -1,0 +1,18 @@
+{% extends 'tickets/base.html' %}
+
+{% block content %}
+<h1>Мої бронювання</h1>
+
+{% if bookings %}
+    <ul>
+        {% for booking in bookings %}
+            <li>
+                ID бронювання: {{ booking.id }} - Фільм: {{ booking.show }} - Місце: {{ booking.seat_number }}
+                <a href="{% url 'confirm_booking' booking.id %}">Підтвердити</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>У вас немає бронювань.</p>
+{% endif %}
+{% endblock %}

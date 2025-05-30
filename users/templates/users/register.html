@@ -1,0 +1,47 @@
+{% extends 'users/base.html' %}
+
+{% block title %}Реєстрація користувача{% endblock %}
+
+{% block content %}
+<h2>Реєстрація нового користувача</h2>
+
+{% if form.errors %}
+<div class="error">
+    <p>Будь ласка, виправте помилки нижче:</p>
+    <ul>
+        {% for field in form %}
+            {% if field.errors %}
+                <li>{{ field.label }}: {{ field.errors|join:", " }}</li>
+            {% endif %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<form method="POST" action="{% url 'register' %}">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form.username.label_tag }}  
+        {{ form.username }}
+        {{ form.username.errors }}
+        
+        {{ form.email.label_tag }} 
+        {{ form.email }}
+        {{ form.email.errors }}
+
+        {{ form.password1.label_tag }}  
+        {{ form.password1 }}
+        {{ form.password1.errors }}
+        
+        {{ form.password2.label_tag }}  
+        {{ form.password2 }}
+        {{ form.password2.errors }}
+    </div>
+    <button type="submit" class="btn">Зареєструватись</button> 
+</form>
+
+<p>Вже маєте акаунт? <a href="{% url 'login' %}">Увійдіть тут</a>.</p>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Розклад Сеансів{% endblock %}
+
+{% block content %}
+<div class="schedule-container">
+    <h1>Розклад Сеансів</h1>
+
+    <form method="get">
+        <input type="date" name="date" value="{{ selected_date }}">
+        <button type="submit">Показати</button>
+    </form>
+
+    {% if page_obj %}
+        <ul class="schedule-list">
+            {% for show in page_obj %}
+                <li class="schedule-item">
+                    <strong>{{ show.movie.title }}</strong><br>
+                    Час показу: {{ show.show_time|date:"d.m.Y H:i" }}<br>
+                    Зал: {{ show.cinema_hall.name }}<br>
+                    <a href="{% url 'ticket_booking' show.id %}" class="btn">Забронювати квиток</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; Перша</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">Попередня</a>
+                {% endif %}
+
+                <span class="current">
+                    Сторінка {{ page_obj.number }} з {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Наступна</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">Остання &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    {% else %}
+        <p>На даний момент сеанси відсутні.</p>
+    {% endif %}
+</div>
+{% endblock %}

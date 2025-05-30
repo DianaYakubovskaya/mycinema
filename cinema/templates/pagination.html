@@ -1,0 +1,25 @@
+<div class="pagination">
+    <span class="step-links">
+        {% if page.has_previous %}
+            <a href="?page=1">&laquo; Перша</a>
+            <a href="?page={{ page.previous_page_number }}">Попередня</a>
+        {% endif %}
+
+        {% for num in page.paginator.page_range %}
+            {% if num == page.number %}
+                <span class="current">Сторінка {{ num }}</span>
+            {% elif num > page.number|add:'-2' and num < page.number|add:'2' %}
+                <a href="?page={{ num }}">{{ num }}</a>
+            {% elif num == 1 %}
+                <a href="?page=1">1</a> …
+            {% elif num == page.paginator.num_pages %}
+                … <a href="?page={{ num }}">{{ num }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if page.has_next %}
+            <a href="?page={{ page.next_page_number }}">Наступна</a>
+            <a href="?page={{ page.paginator.num_pages }}">Остання &raquo;</a>
+        {% endif %}
+    </span>
+</div>

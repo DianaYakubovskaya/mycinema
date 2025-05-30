@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Мій Профіль{% endblock %}
+
+{% block content %}
+<h1>Профіль користувача</h1>
+
+<p>Ім'я користувача: {{ user.username }}</p>
+<p>Електронна пошта: {{ user.email }}</p>
+
+<h2>Редагувати профіль</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }} 
+    <button type="submit" class="btn">Оновити профіль</button>
+</form>
+
+<h2>Заброньовані квитки</h2>
+{% if tickets %}
+    <ul>
+        {% for ticket in tickets %}
+            <li>Фільм: {{ ticket.show.movie.title }} | Час показу: {{ ticket.show.show_time }} | Місце: {{ ticket.seat_number }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Немає заброньованих квитків.</p>
+{% endif %}
+
+<form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit" class="btn">Вийти</button>
+</form>
+{% endblock %}

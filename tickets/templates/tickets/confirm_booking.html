@@ -1,0 +1,20 @@
+{% extends 'tickets/base.html' %}
+
+{% block content %}
+<h2>Підтвердження бронювання</h2>  
+
+{% if booking_success %}
+    <p>Дякуємо за ваше бронювання, {{ user.username }}!</p>  
+    <p>Ви успішно забронювали квиток на:</p>  
+    <ul>
+        <li><strong>Фільм:</strong> {{ show.movie.title }}</li> 
+        <li><strong>Час показу:</strong> {{ show.show_time.strftime('%Y-%m-%d %H:%M') }}</li>  
+        <li><strong>Номер місця:</strong> {{ seat_number }}</li>  
+    </ul>
+    <p>Ваш ID бронювання: <strong>{{ booking_id }}</strong></p>  
+{% else %}
+    <p>На жаль, сталася помилка з вашим бронюванням.</p>  
+{% endif %}
+
+<a href="{% url 'movie_list' %}">Назад до списку фільмів</a>  
+{% endblock %}

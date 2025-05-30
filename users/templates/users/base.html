@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}MyCinema{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'cinema/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'users/css/users.css' %}">
+    <link rel="stylesheet" href="{% static 'tickets/css/tickets.css' %}">
+</head>
+<body>
+    <header class="header">
+        <a href="/" class="logo">MyCinema</a>
+        <nav>
+            <ul>
+                <li><a href="{% url 'movie_list' %}">Фільми</a></li> 
+                <li><a href="{% url 'schedule' %}">Розклад</a></li>  
+                <li><a href="{% url 'login' %}">Увійти</a></li>  
+                <li><a href="{% url 'register' %}">Зареєструватись</a></li>  
+                <li><a href="{% url 'profile' %}">Профіль</a></li>  
+                {% if user.is_authenticated and user.booking_set.exists %}
+                <li>
+                    <a href="{% url 'confirm_booking' user.booking_set.first.id %}">Мої бронювання</a>  
+                </li>
+                {% else %}
+                <li><a href="#">Мої бронювання</a></li>  
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+   
+    
+    <main>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+    
+</body>
+</html>

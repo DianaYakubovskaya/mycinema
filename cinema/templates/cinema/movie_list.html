@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Список фільмів{% endblock %}
+
+{% block content %}
+<div class="movie-list-container">
+    <h1>Доступні фільми</h1>
+
+    <div class="sort-options">
+        <a href="?sort=popularity" {% if sort_by == 'popularity' %}class="active"{% endif %}>Популярність</a>
+        <a href="?sort=novelty" {% if sort_by == 'novelty' %}class="active"{% endif %}>Новизна</a>
+        <a href="?sort=rating" {% if sort_by == 'rating' %}class="active"{% endif %}>Рейтинг</a>
+    </div>
+
+    {% if page_obj %}
+        <ul class="movie-list">
+            {% for movie in page_obj %}
+                <li class="movie-item">
+                    <strong>{{ movie.title }}</strong><br>
+                    <a href="{% url 'movie_detail' movie.id %}">Переглянути деталі</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; Перша</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">Попередня</a>
+                {% endif %}
+
+                <span class="current">
+                    Сторінка {{ page_obj.number }} з {{ page_obj.paginator.num_pages }}
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Наступна</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">Остання &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    {% else %}
+        <p>На даний момент фільми недоступні.</p>
+    {% endif %}
+</div>
+{% endblock %}

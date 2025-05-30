@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ movie.title }}{% endblock %}
+
+{% block content %}
+<div class="movie-detail-container">
+    <h1>{{ movie.title }}</h1>
+    
+    <div class="movie-poster">
+        <img src="{{ movie.poster.url }}" alt="{{ movie.title }} постер" class="poster-image">
+    </div>
+    
+    <div class="movie-info">
+        <p><strong>Опис:</strong> {{ movie.description }}</p>
+        <p><strong>Дата виходу:</strong> {{ movie.release_date }}</p>
+        <p><strong>Тривалість:</strong> {{ movie.duration }} хв</p> 
+        <p><strong>Ціна квитка:</strong> {{ movie.ticket_price }} грн</p>
+        <p><strong>Рейтинг IMDb:</strong> {{ movie.imdb_rating }}</p>
+        
+        <h2>Жанри:</h2>
+        <ul class="genre-list">
+            {% for genre in movie.genres.all %}
+                <li class="genre-item">{{ genre.name }}</li>
+            {% empty %}
+                <li>Жанри відсутні</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
