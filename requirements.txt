@@ -5,6 +5,7 @@ dill==0.3.9
 Django==5.1.1
 isort==5.13.2
 mccabe==0.7.0
+pillow==11.2.1
 platformdirs==4.3.6
 playsound==1.2.2
 pylint==3.3.1
