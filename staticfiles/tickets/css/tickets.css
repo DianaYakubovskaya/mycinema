@@ -1,0 +1,39 @@
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1em;
+    background-color: rgba(50, 50, 50, 0.9); /* Темніший фон */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* тінь для глибини */
+}
+
+label {
+    color: white; /* Білий колір тексту для міток */
+    margin-bottom: 5px; /* Зменшено відступ для міток */
+}
+
+input, input[type="number"], button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc; /*рамка для полів */
+    box-sizing: border-box; /* Задати відступи, включаючи ширину */
+}
+
+input:focus {
+    border-color: #007bff; /* Колір рамки при фокусуванні */
+    outline: none; /* Прибирає стандартне обведення */
+}
+
+button {
+    background-color: #28a745; /* Зелений фон для кнопки */
+    color: white; /* Білий текст */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Анімація при наведенні */
+}
+
+button:hover {
+    background-color: #218838; /* Темніший зелений при наведенні */
+}

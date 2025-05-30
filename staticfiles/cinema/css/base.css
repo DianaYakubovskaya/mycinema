@@ -1,0 +1,312 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url('mycinema.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center; 
+    color: white;
+}
+
+.background-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90vw; 
+    height: 90vw; 
+    max-width: 500px; 
+    max-height: 500px; 
+    background-color: rgba(0, 102, 204, 0.6); 
+    border-radius: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 1;
+}
+
+.overlay-text {
+    position: relative;
+    z-index: 2; 
+    color: white; 
+    font-size: 28px; 
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); 
+}
+
+.text-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(51, 51, 51, 0.9); 
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    font-size: 24px;
+    color: rgb(244, 242, 242);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav {
+    flex-grow: 1;
+    text-align: center;
+}
+
+nav ul {
+    display: inline-flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white; 
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffcc00; 
+}
+
+main {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+footer {
+    background-color: rgba(51, 51, 51, 0.9);
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+.movie-list-container, .schedule-container, .form-group {
+    max-width: 800px;
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(50, 50, 50, 0.9); 
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: white;
+}
+
+.movie-list, .schedule-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.movie-item, .schedule-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgb(245, 234, 234);
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.schedule-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.schedule-item strong {
+    font-size: 18px;
+    color: white; 
+}
+
+/* Стиль для посилань "Переглянути деталі", "Популярність", "Рейтинг" */
+.movie-item a,
+.schedule-item a,
+.popularity-link,
+.rating-link {
+    color: #e4bc18; /* Заданий колір */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.movie-item a:hover,
+.schedule-item a:hover,
+.popularity-link:hover,
+.rating-link:hover {
+    color: #ffaa00; /* Колір при наведенні */
+    text-decoration: underline;
+
+}
+/* Стиль для посилань сортування */
+.sort-options a {
+    color: #e4bc18; /* Основний колір для посилань */
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* Стиль для активного посилання */
+.sort-options a.active {
+    color: #ffaa00; /* Колір для активного сортувального посилання */
+}
+
+/* Стиль при наведенні */
+.sort-options a:hover {
+    color: #ffcc00;
+    text-decoration: underline;
+}
+
+.schedule-item .btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.schedule-item .btn:hover {
+    background-color: #45a049;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination .step-links a {
+    margin: 0 5px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.pagination .step-links a:hover {
+    background-color: #185193;
+}
+
+.pagination .step-links .current {
+    margin: 0 5px;
+    padding: 10px;
+    background-color: #3e0bbe;
+    color: white;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        margin: 10px 0;
+    }
+    
+    .schedule-container {
+        padding: 15px;
+    }
+    
+    .pagination {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.movie-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #747f5a;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.movie-info {
+    background-color: rgba(226, 247, 157, 0.8);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgb(218, 202, 202);
+    color: rgb(6, 3, 3); 
+}
+
+.movie-info p {
+    margin: 10px 0;
+}
+
+.genre-list {
+    list-style-type: none; 
+    padding: 0; 
+}
+
+.genre-item {
+    background-color: #e0e0e0; 
+    padding: 5px 10px; 
+    border-radius: 5px; 
+    margin: 5px 0; 
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;   
+    color: rgb(255, 255, 255); 
+}
+
+.alert-info {
+    margin-bottom: 20px;
+    color: white; 
+}

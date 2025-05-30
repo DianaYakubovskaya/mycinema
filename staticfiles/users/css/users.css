@@ -1,0 +1,30 @@
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 1em;
+    background: rgba(50, 50, 50, 0.9); /* Темніший фон для форми */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Злегка затемнене тіньове */
+}
+
+label {
+    margin-top: 10px;
+    color: white; /* Білий колір тексту для міток */
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc; /* Можна змінити на більш темний колір для контрасту */
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: #fff; /* Білий фон для полів вводу */
+    color: #333; /* Темно-сірий текст для вводу */
+}
+
+input:focus {
+    border-color: #007bff; /* Колір рамки при фокусуванні */
+    outline: none; /* Прибирає стандартне обведення */
+}

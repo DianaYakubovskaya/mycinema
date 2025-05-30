@@ -1,0 +1,1 @@
+-e "services:\n  - type: web\n    name: my-django-site\n    env: python\n    buildCommand: \"pip install -r requirements.txt\"\n    startCommand: \"gunicorn myproject.wsgi:application\"\n    envVars:\n      - key: DJANGO_SETTINGS_MODULE\n        value: myproject.settings" 
