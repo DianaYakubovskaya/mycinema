@@ -141,3 +141,5 @@ LOGOUT_REDIRECT_URL = 'home'  # Наприклад, якщо є домашня �
 LOGIN_REDIRECT_URL = 'profile'  # Назва шляху до профілю
 TIME_ZONE = 'Europe/Kyiv'  # Встановлює час України
 
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
