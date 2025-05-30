@@ -1,0 +1,15 @@
+asgiref==3.8.1
+astroid==3.3.5
+colorama==0.4.6
+dill==0.3.9
+Django==5.1.1
+isort==5.13.2
+mccabe==0.7.0
+platformdirs==4.3.6
+playsound==1.2.2
+pylint==3.3.1
+setuptools==76.0.0
+sqlparse==0.5.1
+tk==0.1.0
+tomlkit==0.13.2
+tzdata==2024.1
