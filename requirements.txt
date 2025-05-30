@@ -14,7 +14,8 @@ sqlparse==0.5.1
 tk==0.1.0
 tomlkit==0.13.2
 tzdata==2024.1
-gunicorn==21.2.0
+gunicorn==20.1.0
+
 
 
 
